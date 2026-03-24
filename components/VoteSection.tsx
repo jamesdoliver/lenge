@@ -8,6 +8,7 @@ type Design = "A" | "B";
 export default function VoteSection() {
   const [selected, setSelected] = useState<Design | null>(null);
   const [email, setEmail] = useState("");
+  const [consent, setConsent] = useState(false);
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
   const [submitted, setSubmitted] = useState(false);
@@ -25,13 +26,18 @@ export default function VoteSection() {
       return;
     }
 
+    if (!consent) {
+      setError("YOU MUST AGREE TO CONTINUE");
+      return;
+    }
+
     setLoading(true);
 
     try {
       const res = await fetch("/api/vote", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, design: selected }),
+        body: JSON.stringify({ email, design: selected, marketing_consent: consent }),
       });
 
       if (res.ok) {
@@ -118,6 +124,27 @@ export default function VoteSection() {
           placeholder="YOUR EMAIL"
           className="w-full bg-transparent border-b border-border text-text-primary font-[family-name:var(--font-dm-mono)] text-sm uppercase tracking-[0.2em] py-3 px-0 outline-none placeholder:text-text-muted"
         />
+
+        <label className="flex items-start gap-3 mt-4 cursor-pointer min-h-[44px]">
+          <div className="relative flex-shrink-0 mt-0.5">
+            <input
+              type="checkbox"
+              checked={consent}
+              onChange={(e) => setConsent(e.target.checked)}
+              className="sr-only peer"
+            />
+            <div className="w-5 h-5 border-2 border-border peer-checked:bg-accent peer-checked:border-accent transition-all flex items-center justify-center">
+              {consent && (
+                <svg width="12" height="12" viewBox="0 0 12 12" fill="none" className="text-white">
+                  <path d="M2 6L5 9L10 3" stroke="currentColor" strokeWidth="2" strokeLinecap="square" />
+                </svg>
+              )}
+            </div>
+          </div>
+          <span className="font-[family-name:var(--font-dm-mono)] text-[11px] text-text-muted uppercase leading-relaxed">
+            I AGREE TO RECEIVE MARKETING FROM LENGE AND ASSOCIATED PARTIES
+          </span>
+        </label>
 
         {error && (
           <p className="font-[family-name:var(--font-dm-mono)] text-xs text-[#ef4444] mt-2 uppercase">

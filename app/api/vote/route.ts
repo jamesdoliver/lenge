@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 import { supabase } from "@/lib/supabase";
 
 export async function POST(request: Request) {
-  let body: { email?: string; design?: string };
+  let body: { email?: string; design?: string; marketing_consent?: boolean };
 
   try {
     body = await request.json();
@@ -10,7 +10,7 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: "INVALID_INPUT" }, { status: 400 });
   }
 
-  const { email, design } = body;
+  const { email, design, marketing_consent } = body;
 
   if (
     !email ||
@@ -23,7 +23,7 @@ export async function POST(request: Request) {
 
   const { error } = await supabase
     .from("votes")
-    .insert({ email, design });
+    .insert({ email, design, marketing_consent: marketing_consent ?? false });
 
   if (error) {
     if (error.code === "23505") {
