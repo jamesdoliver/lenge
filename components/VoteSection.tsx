@@ -120,7 +120,7 @@ export default function VoteSection() {
         />
 
         {error && (
-          <p className="font-[family-name:var(--font-dm-mono)] text-xs text-red-500 mt-2 uppercase">
+          <p className="font-[family-name:var(--font-dm-mono)] text-xs text-[#ef4444] mt-2 uppercase">
             {error}
           </p>
         )}
