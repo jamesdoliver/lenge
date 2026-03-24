@@ -1,9 +1,9 @@
 import { Instagram, Twitter, Youtube } from "lucide-react";
 
 const socials = [
-  { icon: Instagram, href: "#INSTAGRAM_URL", label: "Instagram" }, // TODO: replace with live URL
+  { icon: Instagram, href: "https://www.instagram.com/lenge.wav/", label: "Instagram" },
   { icon: Twitter, href: "#TWITTER_URL", label: "Twitter" }, // TODO: replace with live URL
-  { icon: Youtube, href: "#YOUTUBE_URL", label: "YouTube" }, // TODO: replace with live URL
+  { icon: Youtube, href: "https://www.youtube.com/@lenge_wav", label: "YouTube" },
 ];
 
 export default function Footer() {

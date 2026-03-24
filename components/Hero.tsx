@@ -8,7 +8,7 @@ export default function Hero() {
         alt="LENGE live"
         width={1600}
         height={900}
-        className="w-full h-auto"
+        className="w-full max-h-[70vh] object-cover"
         priority
       />
       {/* Vignette overlay */}

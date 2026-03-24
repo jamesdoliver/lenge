@@ -60,7 +60,7 @@ export default function VoteSection() {
 
   if (submitted) {
     return (
-      <section className="px-4 py-12 text-center">
+      <section id="vote" className="px-4 py-12 text-center">
         <h2 className="font-[family-name:var(--font-bebas)] text-4xl text-text-primary uppercase tracking-[0.2em]">
           VOTE RECEIVED.
         </h2>
@@ -72,7 +72,7 @@ export default function VoteSection() {
   }
 
   return (
-    <section className="px-4 py-12">
+    <section id="vote" className="px-4 py-12">
       {/* Heading */}
       <h2 className="font-[family-name:var(--font-bebas)] text-[28px] text-border text-center uppercase tracking-[0.2em]">
         VOTE FOR THE DESIGN
