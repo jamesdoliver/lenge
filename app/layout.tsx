@@ -19,6 +19,17 @@ const dmMono = DM_Mono({
 export const metadata: Metadata = {
   title: "LENGE",
   description: "Germany's most famous underground hip house rapper",
+  openGraph: {
+    title: "LENGE",
+    description: "Germany's most famous underground hip house rapper",
+    images: [{ url: "/images/hero.jpg", width: 4500, height: 2508 }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "LENGE",
+    description: "Germany's most famous underground hip house rapper",
+    images: ["/images/hero.jpg"],
+  },
   icons: {
     icon: [
       { url: "/favicon.ico", sizes: "any" },
