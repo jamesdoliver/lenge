@@ -102,11 +102,12 @@ export default function VoteSection() {
               <div className="absolute inset-0 bg-[rgba(138,92,246,0.10)] z-10 pointer-events-none" />
             )}
             <Image
-              src={`/images/tshirt-${design.toLowerCase()}.jpg`}
+              src={`/images/tshirt-${design.toLowerCase()}.png`}
               alt={`T-shirt design ${design}`}
-              width={400}
-              height={250}
+              width={800}
+              height={500}
               className="w-full h-auto"
+              unoptimized
             />
             <p className="font-[family-name:var(--font-bebas)] text-text-primary text-center text-base uppercase tracking-[0.2em] py-2">
               DESIGN {design}

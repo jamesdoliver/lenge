@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, useCallback } from "react";
+import { createPortal } from "react-dom";
 
 export default function TicketsModal({
   children,
@@ -65,7 +66,7 @@ export default function TicketsModal({
         {children}
       </button>
 
-      {open && (
+      {open && createPortal(
         <div
           className="fixed inset-0 z-[60] flex items-center justify-center px-4"
           onClick={close}
@@ -112,7 +113,8 @@ export default function TicketsModal({
               </>
             )}
           </div>
-        </div>
+        </div>,
+        document.body
       )}
     </>
   );

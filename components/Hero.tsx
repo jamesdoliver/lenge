@@ -8,8 +8,9 @@ export default function Hero() {
         alt="LENGE live"
         width={1600}
         height={900}
-        className="w-full max-h-[70vh] object-cover"
+        className="w-full max-h-[85vh] object-cover"
         priority
+        unoptimized
       />
       {/* Vignette overlay */}
       <div
