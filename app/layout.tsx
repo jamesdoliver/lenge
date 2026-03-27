@@ -18,7 +18,7 @@ const dmMono = DM_Mono({
 
 export const metadata: Metadata = {
   title: "LENGE",
-  description: "LENGE — underground electronic music",
+  description: "Germany's most famous underground hip house rapper",
   icons: {
     icon: [
       { url: "/favicon.ico", sizes: "any" },
