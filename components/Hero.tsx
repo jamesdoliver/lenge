@@ -8,7 +8,7 @@ export default function Hero() {
         alt="LENGE live"
         width={1600}
         height={900}
-        className="w-full md:max-h-[85vh] md:object-cover md:object-top"
+        className="w-full h-[60vh] object-cover object-center md:h-auto md:max-h-[85vh] md:object-top"
         priority
         unoptimized
       />
