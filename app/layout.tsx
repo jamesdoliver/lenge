@@ -18,17 +18,17 @@ const dmMono = DM_Mono({
 
 export const metadata: Metadata = {
   title: "LENGE",
-  description: "Germany's most famous underground hip house rapper",
+  description: "Deutschland bekanntester underground hip house rapper",
   metadataBase: new URL("https://lenge.app"),
   openGraph: {
     title: "LENGE",
-    description: "Germany's most famous underground hip house rapper",
+    description: "Deutschland bekanntester underground hip house rapper",
     images: [{ url: "/images/hero.jpg", width: 4500, height: 2508 }],
   },
   twitter: {
     card: "summary_large_image",
     title: "LENGE",
-    description: "Germany's most famous underground hip house rapper",
+    description: "Deutschland bekanntester underground hip house rapper",
     images: ["/images/hero.jpg"],
   },
   icons: {
@@ -47,7 +47,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="de">
       <body
         className={`${bebasNeue.variable} ${dmMono.variable} bg-bg text-text-primary antialiased`}
       >

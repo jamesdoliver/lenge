@@ -17,17 +17,17 @@ export default function VoteSection() {
     setError("");
 
     if (!selected) {
-      setError("SELECT A DESIGN");
+      setError("WÄHLE EIN DESIGN");
       return;
     }
 
     if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-      setError("ENTER A VALID EMAIL");
+      setError("GÜLTIGE E-MAIL EINGEBEN");
       return;
     }
 
     if (!consent) {
-      setError("YOU MUST AGREE TO CONTINUE");
+      setError("BITTE ZUSTIMMUNG ERTEILEN");
       return;
     }
 
@@ -46,13 +46,13 @@ export default function VoteSection() {
       }
 
       if (res.status === 409) {
-        setError("THIS EMAIL HAS ALREADY VOTED.");
+        setError("DIESE E-MAIL HAT BEREITS ABGESTIMMT.");
         return;
       }
 
-      setError("SOMETHING WENT WRONG. TRY AGAIN.");
+      setError("ETWAS IST SCHIEFGELAUFEN. VERSUCH ES NOCHMAL.");
     } catch {
-      setError("SOMETHING WENT WRONG. TRY AGAIN.");
+      setError("ETWAS IST SCHIEFGELAUFEN. VERSUCH ES NOCHMAL.");
     } finally {
       setLoading(false);
     }
@@ -62,10 +62,10 @@ export default function VoteSection() {
     return (
       <section id="vote" className="px-4 py-12 text-center">
         <h2 className="font-[family-name:var(--font-bebas)] text-4xl text-text-primary uppercase tracking-[0.2em]">
-          VOTE RECEIVED.
+          VOTE ERHALTEN.
         </h2>
         <p className="font-[family-name:var(--font-dm-mono)] text-sm text-text-muted mt-2 uppercase">
-          WE&apos;LL HIT YOU WHEN IT DROPS.
+          DU ERF&Auml;HRST ZUERST VOM DROP 😔🙏🏻
         </p>
       </section>
     );
@@ -75,14 +75,14 @@ export default function VoteSection() {
     <section id="vote" className="px-4 py-12">
       {/* Heading */}
       <h2 className="font-[family-name:var(--font-bebas)] text-[28px] text-border text-center uppercase tracking-[0.2em]">
-        VOTE FOR THE DESIGN
+        VOTE FÜR DAS DESIGN
       </h2>
 
       {/* Subheadings */}
       <div className="mt-3 text-center font-[family-name:var(--font-dm-mono)] text-xs text-text-muted uppercase leading-relaxed">
-        <p>CHOOSE YOUR MERCH</p>
-        <p>ENTER YOUR EMAIL</p>
-        <p>KNOW WHEN IT DROPS</p>
+        <p>WÄHLE DEINEN MERCH</p>
+        <p>E-MAIL EINGEBEN</p>
+        <p>DROP NICHT VERPASSEN</p>
       </div>
 
       {/* Design Cards */}
@@ -126,7 +126,7 @@ export default function VoteSection() {
           type="email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
-          placeholder="YOUR EMAIL"
+          placeholder="E-MAIL"
           className="w-full bg-transparent border-b border-border text-text-primary font-[family-name:var(--font-dm-mono)] text-sm uppercase tracking-[0.2em] py-3 px-0 outline-none placeholder:text-text-muted"
         />
 
@@ -147,7 +147,7 @@ export default function VoteSection() {
             </div>
           </div>
           <span className="font-[family-name:var(--font-dm-mono)] text-[11px] text-text-muted uppercase leading-relaxed">
-            I AGREE TO RECEIVE MARKETING FROM LENGE AND ASSOCIATED PARTIES
+            Ich stimme zu, Marketinginformationen von Lenge und kooperierenden Partnerunternehmen zu erhalten
           </span>
         </label>
 
@@ -163,7 +163,7 @@ export default function VoteSection() {
           disabled={loading}
           className="w-full mt-4 border-2 border-border bg-transparent text-accent font-[family-name:var(--font-bebas)] text-lg uppercase tracking-[0.2em] py-4 min-h-[44px] hover:bg-[rgba(138,92,246,0.08)] hover:scale-[1.02] transition-all disabled:opacity-50 disabled:cursor-not-allowed"
         >
-          {loading ? "..." : "CAST VOTE"}
+          {loading ? "..." : "VOTE ABGEBEN"}
         </button>
       </div>
     </section>
