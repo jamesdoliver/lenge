@@ -8,7 +8,7 @@ export default function Home() {
   return (
     <>
       <Navbar />
-      <main className="pt-[72px]">
+      <main className="pt-[56px] md:pt-0">
         <Hero />
         <CTARow />
         <VoteSection />
