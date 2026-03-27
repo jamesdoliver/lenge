@@ -19,6 +19,7 @@ const dmMono = DM_Mono({
 export const metadata: Metadata = {
   title: "LENGE",
   description: "Germany's most famous underground hip house rapper",
+  metadataBase: new URL("https://lenge.app"),
   openGraph: {
     title: "LENGE",
     description: "Germany's most famous underground hip house rapper",
