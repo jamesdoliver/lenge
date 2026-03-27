@@ -116,6 +116,10 @@ export default function VoteSection() {
         ))}
       </div>
 
+      <p className="mt-3 text-center font-[family-name:var(--font-dm-mono)] text-xs text-text-muted uppercase">
+        Designed &amp; illustrated by Dieu My Maria Luu (@customsbymy)
+      </p>
+
       {/* Email + Submit */}
       <div className="mt-6">
         <input
