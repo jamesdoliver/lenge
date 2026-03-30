@@ -40,7 +40,7 @@ export default function Footer() {
         ))}
       </div>
       <p className="font-[family-name:var(--font-dm-mono)] text-[11px] text-text-muted uppercase">
-        &copy; 2024 LENGE. ALLE RECHTE VORBEHALTEN.
+        &copy; 2026 LENGE. ALLE RECHTE VORBEHALTEN.
       </p>
     </footer>
   );
