@@ -1,4 +1,5 @@
 import "server-only";
+import { cache } from "react";
 import { shopifyFetch } from "./client";
 import { PRODUCT_BY_HANDLE_QUERY, PRODUCTS_BY_HANDLES_QUERY } from "./queries";
 import type { Product } from "./types";
@@ -19,20 +20,20 @@ function flattenProduct(raw: ProductRaw): Product {
   };
 }
 
-export async function getProductByHandle(handle: string): Promise<Product | null> {
+export const getProductByHandle = cache(async (handle: string): Promise<Product | null> => {
   const data = await shopifyFetch<ProductByHandleData>(
     PRODUCT_BY_HANDLE_QUERY,
     { handle },
     { revalidate: 60 }
   );
   return data.product ? flattenProduct(data.product) : null;
-}
+});
 
-export async function getShopProducts(): Promise<Product[]> {
+export const getShopProducts = cache(async (): Promise<Product[]> => {
   const data = await shopifyFetch<ProductsListData>(
     PRODUCTS_BY_HANDLES_QUERY,
     {},
     { revalidate: 60 }
   );
   return data.products.nodes.map(flattenProduct);
-}
+});

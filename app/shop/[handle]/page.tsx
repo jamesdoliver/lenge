@@ -32,10 +32,15 @@ export async function generateMetadata({
   params: Promise<{ handle: string }>;
 }) {
   const { handle } = await params;
-  const product = await getProductByHandle(handle);
-  if (!product) return { title: "Produkt nicht gefunden" };
-  return {
-    title: `${product.title} · LENGE`,
-    description: product.descriptionHtml.replace(/<[^>]+>/g, "").slice(0, 160),
-  };
+  try {
+    const product = await getProductByHandle(handle);
+    if (!product) return { title: "Produkt nicht gefunden" };
+    return {
+      title: `${product.title} · LENGE`,
+      description: product.descriptionHtml.replace(/<[^>]+>/g, "").slice(0, 160),
+    };
+  } catch (err) {
+    console.error("generateMetadata for product page failed", err);
+    return { title: "LENGE" };
+  }
 }
