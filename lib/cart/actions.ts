@@ -31,12 +31,17 @@ async function ensureCart(): Promise<Cart> {
 export async function getCartAction(): Promise<Cart | null> {
   const id = await readCartId();
   if (!id) return null;
-  const cart = await fetchCart(id);
-  if (!cart) {
-    await clearCartId();
+  try {
+    const cart = await fetchCart(id);
+    if (!cart) {
+      await clearCartId();
+      return null;
+    }
+    return cart;
+  } catch (err) {
+    console.error("getCartAction failed", err);
     return null;
   }
-  return cart;
 }
 
 export async function addToCartAction(

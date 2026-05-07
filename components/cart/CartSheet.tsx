@@ -40,7 +40,7 @@ export default function CartSheet() {
         type="button"
         aria-label="Warenkorb schließen"
         onClick={close}
-        className={`fixed inset-0 z-40 bg-black/60 transition-opacity ${
+        className={`fixed inset-0 z-[55] bg-black/60 transition-opacity ${
           isOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
         }`}
       />
@@ -50,7 +50,7 @@ export default function CartSheet() {
         role="dialog"
         aria-modal="true"
         aria-labelledby="cart-title"
-        className={`fixed z-50 bg-bg border-border/60 transition-transform duration-300 ease-out
+        className={`fixed z-[60] bg-bg border-border/60 transition-transform duration-300 ease-out
           inset-x-0 bottom-0 max-h-[85vh] border-t
           md:inset-y-0 md:right-0 md:left-auto md:max-h-none md:w-[420px] md:border-l md:border-t-0
           ${
