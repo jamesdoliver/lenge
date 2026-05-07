@@ -55,7 +55,8 @@ export async function addToCartAction(
     revalidatePath("/", "layout");
     return { ok: true, cart: updated };
   } catch (err) {
-    return { ok: false, error: err instanceof Error ? err.message : "FEHLER" };
+    console.error("addToCartAction failed", err);
+    return { ok: false, error: "FEHLER" };
   }
 }
 
@@ -73,7 +74,8 @@ export async function updateLineAction(
     revalidatePath("/", "layout");
     return { ok: true, cart: updated };
   } catch (err) {
-    return { ok: false, error: err instanceof Error ? err.message : "FEHLER" };
+    console.error("updateLineAction failed", err);
+    return { ok: false, error: "FEHLER" };
   }
 }
 
@@ -85,6 +87,7 @@ export async function removeLineAction(lineId: string): Promise<ActionResult> {
     revalidatePath("/", "layout");
     return { ok: true, cart: updated };
   } catch (err) {
-    return { ok: false, error: err instanceof Error ? err.message : "FEHLER" };
+    console.error("removeLineAction failed", err);
+    return { ok: false, error: "FEHLER" };
   }
 }
