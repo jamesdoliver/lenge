@@ -18,7 +18,6 @@ const PRODUCT_FRAGMENT = `#graphql
         id
         title
         availableForSale
-        quantityAvailable
         price { amount currencyCode }
         selectedOptions { name value }
       }
@@ -35,7 +34,7 @@ export const PRODUCT_BY_HANDLE_QUERY = `#graphql
 
 export const PRODUCTS_BY_HANDLES_QUERY = `#graphql
   ${PRODUCT_FRAGMENT}
-  query ProductsByHandles($handles: [String!]!) {
+  query ProductsByHandles {
     products(first: 50, query: "handle:lenge-design-a OR handle:lenge-design-b") {
       nodes { ...ProductFields }
     }

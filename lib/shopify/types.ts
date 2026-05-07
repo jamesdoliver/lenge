@@ -14,7 +14,7 @@ export type ProductVariant = {
   id: string;
   title: string;
   availableForSale: boolean;
-  quantityAvailable: number | null;
+  quantityAvailable?: number | null;
   price: Money;
   selectedOptions: { name: string; value: string }[];
 };
