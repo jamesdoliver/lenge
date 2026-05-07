@@ -1,6 +1,10 @@
 import type { Metadata } from "next";
 import { Bebas_Neue, DM_Mono } from "next/font/google";
 import "./globals.css";
+import { CartProvider } from "@/components/cart/CartProvider";
+import CartSheet from "@/components/cart/CartSheet";
+import CartPill from "@/components/cart/CartPill";
+import { getCartAction } from "@/lib/cart/actions";
 
 const bebasNeue = Bebas_Neue({
   weight: "400",
@@ -41,17 +45,23 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const initialCart = await getCartAction();
+
   return (
     <html lang="de">
       <body
         className={`${bebasNeue.variable} ${dmMono.variable} bg-bg text-text-primary antialiased`}
       >
-        {children}
+        <CartProvider initialCart={initialCart}>
+          {children}
+          <CartSheet />
+          <CartPill />
+        </CartProvider>
       </body>
     </html>
   );
