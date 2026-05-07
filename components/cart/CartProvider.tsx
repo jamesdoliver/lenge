@@ -4,7 +4,6 @@ import {
   createContext,
   useCallback,
   useContext,
-  useOptimistic,
   useState,
   useTransition,
   type ReactNode,
@@ -14,7 +13,10 @@ import {
   addToCartAction,
   removeLineAction,
   updateLineAction,
+  type ActionResult,
 } from "@/lib/cart/actions";
+
+export type { ActionResult };
 
 type CartContextValue = {
   cart: Cart | null;
@@ -22,9 +24,9 @@ type CartContextValue = {
   isPending: boolean;
   open: () => void;
   close: () => void;
-  add: (variantId: string, quantity: number) => Promise<void>;
-  updateLine: (lineId: string, quantity: number) => Promise<void>;
-  removeLine: (lineId: string) => Promise<void>;
+  add: (variantId: string, quantity: number) => Promise<ActionResult>;
+  updateLine: (lineId: string, quantity: number) => Promise<ActionResult>;
+  removeLine: (lineId: string) => Promise<ActionResult>;
 };
 
 const CartContext = createContext<CartContextValue | null>(null);
@@ -37,7 +39,6 @@ export function CartProvider({
   children: ReactNode;
 }) {
   const [cart, setCart] = useState<Cart | null>(initialCart);
-  const [optimisticCart] = useOptimistic(cart);
   const [isOpen, setIsOpen] = useState(false);
   const [isPending, startTransition] = useTransition();
 
@@ -46,13 +47,13 @@ export function CartProvider({
 
   const add = useCallback(
     (variantId: string, quantity: number) =>
-      new Promise<void>((resolve) => {
+      new Promise<ActionResult>((resolve) => {
         startTransition(async () => {
           // Open the sheet immediately for responsiveness
           setIsOpen(true);
           const result = await addToCartAction(variantId, quantity);
           if (result.ok) setCart(result.cart);
-          resolve();
+          resolve(result);
         });
       }),
     []
@@ -60,11 +61,11 @@ export function CartProvider({
 
   const updateLine = useCallback(
     (lineId: string, quantity: number) =>
-      new Promise<void>((resolve) => {
+      new Promise<ActionResult>((resolve) => {
         startTransition(async () => {
           const result = await updateLineAction(lineId, quantity);
           if (result.ok) setCart(result.cart);
-          resolve();
+          resolve(result);
         });
       }),
     []
@@ -72,11 +73,11 @@ export function CartProvider({
 
   const removeLine = useCallback(
     (lineId: string) =>
-      new Promise<void>((resolve) => {
+      new Promise<ActionResult>((resolve) => {
         startTransition(async () => {
           const result = await removeLineAction(lineId);
           if (result.ok) setCart(result.cart);
-          resolve();
+          resolve(result);
         });
       }),
     []
@@ -85,7 +86,7 @@ export function CartProvider({
   return (
     <CartContext.Provider
       value={{
-        cart: optimisticCart,
+        cart,
         isOpen,
         isPending,
         open,

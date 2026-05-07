@@ -10,7 +10,7 @@ const formatter = new Intl.NumberFormat("de-DE", {
 });
 
 export default function CartLineItem({ line }: { line: CartLine }) {
-  const { updateLine, removeLine } = useCart();
+  const { updateLine, removeLine, isPending } = useCart();
   const image = line.merchandise.product.featuredImage;
   const sizeOption = line.merchandise.selectedOptions.find((o) => o.name.toLowerCase().includes("größe") || o.name.toLowerCase() === "size");
 
@@ -46,7 +46,8 @@ export default function CartLineItem({ line }: { line: CartLine }) {
               type="button"
               aria-label="Menge verringern"
               onClick={() => updateLine(line.id, line.quantity - 1)}
-              className="w-8 h-8 flex items-center justify-center text-text-primary hover:text-accent"
+              disabled={isPending}
+              className="w-8 h-8 flex items-center justify-center text-text-primary hover:text-accent disabled:opacity-40 disabled:cursor-not-allowed"
             >
               −
             </button>
@@ -57,7 +58,8 @@ export default function CartLineItem({ line }: { line: CartLine }) {
               type="button"
               aria-label="Menge erhöhen"
               onClick={() => updateLine(line.id, line.quantity + 1)}
-              className="w-8 h-8 flex items-center justify-center text-text-primary hover:text-accent"
+              disabled={isPending}
+              className="w-8 h-8 flex items-center justify-center text-text-primary hover:text-accent disabled:opacity-40 disabled:cursor-not-allowed"
             >
               +
             </button>
@@ -73,7 +75,8 @@ export default function CartLineItem({ line }: { line: CartLine }) {
         type="button"
         aria-label="Artikel entfernen"
         onClick={() => removeLine(line.id)}
-        className="self-start w-8 h-8 flex items-center justify-center text-text-muted hover:text-accent text-lg"
+        disabled={isPending}
+        className="self-start w-8 h-8 flex items-center justify-center text-text-muted hover:text-accent text-lg disabled:opacity-40 disabled:cursor-not-allowed"
       >
         ×
       </button>
