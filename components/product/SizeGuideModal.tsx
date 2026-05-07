@@ -40,13 +40,13 @@ export default function SizeGuideModal({ availableSizes }: { availableSizes: str
             type="button"
             aria-label="Schließen"
             onClick={() => setOpen(false)}
-            className="fixed inset-0 z-40 bg-black/70"
+            className="fixed inset-0 z-[55] bg-black/70"
           />
           <div
             role="dialog"
             aria-modal="true"
             aria-labelledby="size-guide-title"
-            className="fixed inset-0 md:inset-auto md:top-1/2 md:left-1/2 md:-translate-x-1/2 md:-translate-y-1/2 z-50 bg-bg border-border/60 md:border md:max-w-xl md:w-full md:max-h-[85vh] flex flex-col overflow-y-auto"
+            className="fixed inset-0 md:inset-auto md:top-1/2 md:left-1/2 md:-translate-x-1/2 md:-translate-y-1/2 z-[60] bg-bg border-border/60 md:border md:max-w-xl md:w-full md:max-h-[85vh] flex flex-col overflow-y-auto"
           >
             <div className="flex items-center justify-between px-5 py-4 border-b border-border/30 sticky top-0 bg-bg">
               <div>

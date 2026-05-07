@@ -15,9 +15,9 @@ export default function SizeGuideDiagram() {
         {/* B — body length */}
         <line x1="20" y1="0" x2="20" y2="130" stroke="currentColor" strokeDasharray="3 3" />
         <text x="14" y="68" textAnchor="middle" fontSize="10" fill="currentColor">B</text>
-        {/* C — sleeve length */}
-        <line x1="120" y1="10" x2="155" y2="25" stroke="currentColor" strokeDasharray="3 3" />
-        <text x="146" y="14" textAnchor="middle" fontSize="10" fill="currentColor">C</text>
+        {/* C — sleeve length (offset outward to remain visible against the body outline) */}
+        <line x1="122" y1="6" x2="159" y2="22" stroke="currentColor" strokeDasharray="3 3" />
+        <text x="148" y="10" textAnchor="middle" fontSize="10" fill="currentColor">C</text>
       </g>
       <text x="100" y="170" textAnchor="middle" fontSize="11" fill="currentColor" fontFamily="var(--font-dm-mono)" letterSpacing="2">FRONT</text>
 
