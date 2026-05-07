@@ -35,5 +35,7 @@ export const getShopProducts = cache(async (): Promise<Product[]> => {
     {},
     { revalidate: 60 }
   );
-  return data.products.nodes.map(flattenProduct);
+  return data.products.nodes
+    .map(flattenProduct)
+    .sort((a, b) => a.handle.localeCompare(b.handle));
 });

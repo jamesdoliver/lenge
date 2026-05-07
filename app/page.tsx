@@ -4,6 +4,8 @@ import CTARow from "@/components/CTARow";
 import ShopSection from "@/components/ShopSection";
 import Footer from "@/components/Footer";
 
+// Sets default fetch revalidate for this segment. The page itself is
+// dynamic because the root layout reads cookies() in getCartAction.
 export const revalidate = 60;
 
 export default function Home() {
