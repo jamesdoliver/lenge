@@ -1,4 +1,4 @@
-export const SIZES_OFFERED = ["XXS", "XS", "S", "M", "L", "XL", "XXL", "3XL"] as const;
+export const SIZES_OFFERED = ["XXS", "XS", "S", "M", "L", "XL", "2XL", "3XL"] as const;
 export type Size = (typeof SIZES_OFFERED)[number];
 
 export type SizeRow = {
@@ -16,7 +16,7 @@ export const SIZE_GUIDE_CM: SizeRow[] = [
   { size: "M",   halfChest: 53.5, bodyLength: 73, sleeveLength: 24 },
   { size: "L",   halfChest: 56.5, bodyLength: 75, sleeveLength: 24.5 },
   { size: "XL",  halfChest: 59.5, bodyLength: 77, sleeveLength: 25 },
-  { size: "XXL", halfChest: 63.5, bodyLength: 79, sleeveLength: 25.5 },
+  { size: "2XL", halfChest: 63.5, bodyLength: 79, sleeveLength: 25.5 },
   { size: "3XL", halfChest: 67.5, bodyLength: 81, sleeveLength: 26 },
 ];
 
