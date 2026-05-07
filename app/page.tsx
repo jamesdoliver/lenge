@@ -1,8 +1,10 @@
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import CTARow from "@/components/CTARow";
-import VoteSection from "@/components/VoteSection";
+import ShopSection from "@/components/ShopSection";
 import Footer from "@/components/Footer";
+
+export const revalidate = 60;
 
 export default function Home() {
   return (
@@ -11,7 +13,7 @@ export default function Home() {
       <main className="pt-[52px] md:pt-0">
         <Hero />
         <CTARow />
-        <VoteSection />
+        <ShopSection />
       </main>
       <Footer />
     </>

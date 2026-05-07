@@ -11,7 +11,7 @@ export default function CTARow() {
         <TicketsModal className={ctaClass}>
           TICKETS
         </TicketsModal>
-        <a href="#vote" className={ctaClass}>
+        <a href="#shop" className={ctaClass}>
           MERCH
         </a>
         <NewsletterModal className={ctaClass}>
