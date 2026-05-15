@@ -21,9 +21,29 @@ export default function ShippingAccordion() {
       </button>
       {open && (
         <div className="pb-5 space-y-3 font-[family-name:var(--font-dm-mono)] text-[12px] text-text-primary leading-relaxed">
-          <p>Versand innerhalb 3–5 Werktagen nach Drop-Ende.</p>
-          <p>Versandkosten werden im Checkout berechnet.</p>
-          <p>14 Tage Rückgaberecht ab Erhalt der Ware. Artikel müssen ungetragen und unbeschädigt sein.</p>
+          <p>
+            Herzlichen Glückwunsch — mit dem Erwerb dieses T-Shirts bist du Teil des
+            ersten offiziellen Lenge-Merch Drops JEMALS!
+          </p>
+          <p>
+            Da dies ein exklusiver Vorverkauf ist, müssen wir dich bis zum Erhalt
+            deiner Bestellung um etwas Geduld bitten. (Man könnte sagen, es wird
+            sich in die Lenge ziehen.) Die T-Shirts werden voraussichtlich im Juli
+            bei euch eintreffen. Danke für deinen Support &lt;3
+          </p>
+          <p>Versand innerhalb der EU.</p>
+          <p>
+            For shipping outside of the EU: Our distribution currently focuses on
+            EU countries. If you&rsquo;re based elsewhere, feel free to reach out
+            to{" "}
+            <a
+              href="mailto:shopify@guesstimate.de"
+              className="text-accent hover:underline"
+            >
+              shopify@guesstimate.de
+            </a>{" "}
+            and we&rsquo;ll gladly look into a solution with you.
+          </p>
         </div>
       )}
     </div>
