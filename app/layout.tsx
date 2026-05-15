@@ -22,17 +22,17 @@ const dmMono = DM_Mono({
 
 export const metadata: Metadata = {
   title: "LENGE",
-  description: "Deutschland bekanntester underground hip house rapper",
+  description: "Deutschlands gehyptester Hip-House Rapper",
   metadataBase: new URL("https://lenge.app"),
   openGraph: {
     title: "LENGE",
-    description: "Deutschland bekanntester underground hip house rapper",
+    description: "Deutschlands gehyptester Hip-House Rapper",
     images: [{ url: "/images/hero.jpg", width: 4500, height: 2508 }],
   },
   twitter: {
     card: "summary_large_image",
     title: "LENGE",
-    description: "Deutschland bekanntester underground hip house rapper",
+    description: "Deutschlands gehyptester Hip-House Rapper",
     images: ["/images/hero.jpg"],
   },
   icons: {

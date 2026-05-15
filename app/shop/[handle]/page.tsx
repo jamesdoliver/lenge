@@ -18,7 +18,7 @@ export default async function ProductPage({
   return (
     <>
       <Navbar />
-      <main className="pt-[52px] md:pt-0">
+      <main className="pt-20 md:pt-24">
         <ProductDetails product={product} />
       </main>
       <Footer />

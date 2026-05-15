@@ -12,9 +12,17 @@ type ProductRaw = Omit<Product, "images" | "variants"> & {
   variants: { nodes: Product["variants"] };
 };
 
+function sanitizeDescriptionHtml(html: string): string {
+  return html
+    .replace(/(?:<br\s*\/?>)?\s*Heather Haze: 70\s*%\s*Bio-Baumwolle\s*–\s*30\s*%\s*recycelte Baumwolle\s*(?:<br\s*\/?>)?/gi, "")
+    .replace(/(nicht auf den Aufdruck bügeln,)\s*<br\s*\/?>\s*(von innen nach außen)/gi, "$1 $2")
+    .replace(/Alle Farben sind GOTS-zertifiziert(?:,\s*mit Ausnahme von Heather Haze,\s*(?:<br\s*\/?>)?\s*das GRS-zertifiziert ist)?\.?/gi, "Diese Farbe ist GOTS-zertifiziert.");
+}
+
 function flattenProduct(raw: ProductRaw): Product {
   return {
     ...raw,
+    descriptionHtml: sanitizeDescriptionHtml(raw.descriptionHtml),
     images: raw.images.nodes,
     variants: raw.variants.nodes,
   };

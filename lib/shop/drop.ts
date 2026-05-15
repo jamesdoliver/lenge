@@ -1,6 +1,7 @@
-// Midnight at end of May 22 Berlin (CEST = UTC+2 in May).
-// Means: drop is live up to and including all of May 22; ends at 00:00 May 23.
-export const DROP_END_MS = Date.parse("2026-05-23T00:00:00+02:00");
+// Drop runs for 2 weeks starting 17:00 Berlin (CEST = UTC+2 in May) on 2026-05-15.
+// Window: 2026-05-15 17:00 → 2026-05-29 17:00 Europe/Berlin.
+export const DROP_START_MS = Date.parse("2026-05-15T17:00:00+02:00");
+export const DROP_END_MS = Date.parse("2026-05-29T17:00:00+02:00");
 
 export function isDropActive(now: number = Date.now()): boolean {
   return now < DROP_END_MS;

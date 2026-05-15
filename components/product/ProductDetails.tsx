@@ -24,12 +24,12 @@ export default function ProductDetails({ product }: { product: Product }) {
     <section className="px-4 py-8 lg:px-8 lg:py-12 max-w-6xl mx-auto">
       <div className="grid grid-cols-1 lg:grid-cols-[1.4fr_1fr] gap-8 lg:gap-16">
         {/* LEFT — gallery */}
-        <div>
+        <div className="lg:sticky lg:top-24 lg:self-start">
           <ProductGallery images={product.images} productTitle={product.title} />
         </div>
 
         {/* RIGHT — details */}
-        <div className="lg:sticky lg:top-8 lg:self-start space-y-5">
+        <div className="space-y-5 lg:pt-6">
           {dropActive ? <CountdownTimer /> : <DropEnded />}
 
           <h1 className="font-[family-name:var(--font-bebas)] text-text-primary uppercase tracking-[0.2em] text-3xl lg:text-4xl">
