@@ -82,13 +82,14 @@ Adding a third product card on the homepage will likely require relaxing the 2-c
 
 ## Drop dates
 
-The 14-day drop end is hardcoded in `lib/shop/drop.ts`:
+The drop end is hardcoded in `lib/shop/drop.ts`:
 
 ```ts
-export const DROP_END_MS = Date.parse("2026-05-23T00:00:00+02:00");
+export const DROP_END_MS = Date.parse("2026-05-30T23:59:59+02:00");
 ```
 
-= midnight at end of May 22 Berlin time. Past this moment:
+= end of day May 30 Berlin time (the window was extended one evening from the
+original May 29 17:00 close to give post-payday shoppers an extra day). Past this moment:
 - Server-side: cart form is replaced with a "DROP BEENDET" placard and "Dieses Produkt ist nicht mehr verfügbar." message.
 - The `addToCartAction` Server Action additionally refuses any post-drop add (defense-in-depth in case of cached pages).
 

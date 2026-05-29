@@ -10,7 +10,7 @@ test.describe("Lenge shop", () => {
 
     const shopSection = page.locator("#shop");
     await expect(shopSection).toBeVisible();
-    await expect(shopSection.getByText("Limitierter Drop · 14 Tage")).toBeVisible();
+    await expect(shopSection.getByText("Limitierter Drop · 15 Tage")).toBeVisible();
 
     const cards = shopSection.locator(`a[href^="/shop/"]`);
     await expect(cards).toHaveCount(2);

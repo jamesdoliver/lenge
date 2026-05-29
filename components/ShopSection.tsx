@@ -21,7 +21,7 @@ export default async function ShopSection() {
         Shop
       </h2>
       <p className="mt-3 text-center font-[family-name:var(--font-dm-mono)] text-xs text-text-muted uppercase leading-relaxed tracking-[0.2em]">
-        Limitierter Drop · 14 Tage
+        Limitierter Drop · 15 Tage
       </p>
 
       <div className="grid grid-cols-2 gap-3 mt-8 max-w-3xl mx-auto">

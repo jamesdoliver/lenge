@@ -1,7 +1,9 @@
-// Drop runs for 2 weeks starting 17:00 Berlin (CEST = UTC+2 in May) on 2026-05-15.
-// Window: 2026-05-15 17:00 → 2026-05-29 17:00 Europe/Berlin.
+// Drop opened 17:00 Berlin (CEST = UTC+2 in May) on 2026-05-15.
+// Window: 2026-05-15 17:00 → 2026-05-30 23:59 Europe/Berlin (15 days).
+// Extended one evening past the original 2026-05-29 17:00 close to give
+// post-payday shoppers an extra day to order.
 export const DROP_START_MS = Date.parse("2026-05-15T17:00:00+02:00");
-export const DROP_END_MS = Date.parse("2026-05-29T17:00:00+02:00");
+export const DROP_END_MS = Date.parse("2026-05-30T23:59:59+02:00");
 
 export function isDropActive(now: number = Date.now()): boolean {
   return now < DROP_END_MS;
